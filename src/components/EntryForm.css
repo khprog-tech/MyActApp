@@ -1,0 +1,117 @@
+.main-account-container {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.action-buttons button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-save {
+  background-color: #007bff;
+}
+
+.btn-edit {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.btn-cancel {
+  background-color: #6c757d;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form styling */
+.account-form {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-row label {
+  width: 150px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.form-row input,
+.form-row select {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.checkbox-row label {
+  font-weight: normal;
+}
+
+/* Table styling */
+.account-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.account-table th,
+.account-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.account-table th {
+  background-color: #f1f1f1;
+}
+
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+
+.status-inactive {
+  color: gray;
+}
+
+.inactive-row {
+  background-color: #f5f5f5;
+  text-decoration: line-through;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+}
+/* 
+
+
+
+*/

@@ -1,0 +1,42 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* Main content default spacing */
+.content {
+  margin-top: 60px;
+  margin-bottom: 50px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+/* When sidebar is open */
+.content.with-menu {
+  margin-left: 220px;
+}
+
+/* When sidebar is collapsed */
+.content.full-width {
+  margin-left: 60px;
+}
+
+/* Responsive: full width for mobile */
+@media (max-width: 768px) {
+  .content.with-menu,
+  .content.full-width {
+    margin-left: 0;
+  }
+}
+
+.content h2 {
+  color: #0d47a1;
+  margin-bottom: 10px;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.6;
+}
