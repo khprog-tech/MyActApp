@@ -11,7 +11,7 @@
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.5",
-    "react-scripts": "^0.0.0",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -19,7 +19,6 @@
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-
   },
   "eslintConfig": {
     "extends": [
@@ -39,7 +38,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://github.com/khprog-tech/MyActApp",
+  "homepage": "https://khprog-tech.github.io/MyActApp",
   "devDependencies": {
     "gh-pages": "^6.3.0"
   }
