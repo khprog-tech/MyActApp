@@ -4,38 +4,49 @@ import Header from "./Header";
 import Footer from "./Footer";
 import SideMenu from "./SideMenu";
 import EntryForm from "./EntryForm";
-import ChartOfAccounts from "./ChartOfAccounts"
-
+import Dashboard from "./Dashboard";
+import ControlAccount from "./ControlAccount";
 import "./MainPage.css";
+
 
 const MainPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [activePage, setActivePage] = useState("dashboard");
-  {activePage === "mainAccount" && <EntryForm />}
+    
 
+  const fixedMainAccounts = [
+    { mainCode: "10", description: "Cash & Bank", accountType: "Asset", status: "Active" },
+    { mainCode: "20", description: "Accounts Payable", accountType: "Liability", status: "Active" },
+    { mainCode: "30", description: "Sales Revenue", accountType: "Income", status: "Active" },
+    { mainCode: "40", description: "Operating Expense", accountType: "Expense", status: "Active" }
+  ];
 
   const handleMenuToggle = (open) => {
     setIsMenuOpen(open);
   };
 
   return (
-    <div className="main-page">
-      <Header />
-      <SideMenu 
-        onToggle={handleMenuToggle} 
-        onMenuSelect={(page) => setActivePage(page)} // Pass callback
-      />
-      
-      <main className={`content ${isMenuOpen ? "with-menu" : "full-width"}`}>
-        {activePage === "mainAccount" && <EntryForm />}
-        <h2>Welcome to the ERP Dashboard</h2>
-        <p>
-          This is the main content area where you can navigate between modules,
-          view reports, and manage system configurations.
-        </p>
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="main-page">
+        <Header />
+        <SideMenu 
+
+        /*
+          onToggle={handleMenuToggle} 
+          onMenuSelect={(page) => setActivePage(page)} // Pass callback*/
+
+        />      
+        <main className={`content ${isMenuOpen ? "with-menu" : "full-width"}`}>
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/accounts/main" element={<EntryForm />} />
+            <Route path="/accounts/control" element={<ControlAccount mainAccounts={fixedMainAccounts}/>} />
+            
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 
