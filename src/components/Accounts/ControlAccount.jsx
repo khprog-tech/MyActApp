@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./EntryForm.css";
+import "../CSS/Accounts.css";
 
 const ControlAccountForm = ({ mainAccounts }) => {
   // mainAccounts must come from MainAccount table (passed as props)
@@ -26,6 +26,7 @@ const ControlAccountForm = ({ mainAccounts }) => {
       const selected = mainAccounts.find((acc) => acc.mainCode === code);
       setMainDescription(selected.description);
       setMainAccountType(selected.accountType);
+      
     } else {
       setMainDescription("");
       setMainAccountType("");
@@ -108,7 +109,7 @@ const ControlAccountForm = ({ mainAccounts }) => {
   };
 
   return (
-    <div className="main-account-container">
+    <div className="account-container">
       {/* Header Buttons */}
       <div className="header-row">
         <h2>Control Account</h2>
@@ -177,7 +178,7 @@ const ControlAccountForm = ({ mainAccounts }) => {
           <label>Code:</label>
           <input
             type="text"
-            maxLength={2}
+            maxLength={4}
             value={controlCode}
             onChange={(e) => setControlCode(e.target.value)}
             required

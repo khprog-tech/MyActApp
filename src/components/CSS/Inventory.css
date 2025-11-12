@@ -1,0 +1,145 @@
+.inventory-form-container {
+  max-width: 900;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.inventory-form {
+  background-color: #f9f9f9;
+  margin-top: 10px;
+}
+
+.form-row {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-row label {
+  width: 150px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.form-row input,
+.form-row select {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-row input[type="number"] {
+  width: 120px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.btn {
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.add {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn.modify {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.btn.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn.save {
+  background-color: #ffc107;
+  color: black;
+}
+
+.btn.cancel {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn.exit {
+  background-color: #343a40;
+  color: white;
+}
+
+.form-group {
+  flex: 1;                /* make both fields equal width */
+  display: flex;
+  align-items: center;
+}
+
+.form-group label {
+  width: 18%;             /* adjust label width */
+  font-weight:bold;
+  text-align: left;      /* align label text to the right */
+  margin-right: 0px;
+
+}
+
+.form-group input {
+  padding: 8px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form-group + .form-group {
+  margin-left: 40px;  /* space before second label */
+}
+
+/* Table styling */
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory-table th,
+.inventory-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.inventory-table th {
+  background-color: #f1f1f1;
+}
+
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+
+.status-inactive {
+  color: gray;
+}
+
+.inactive-row {
+  background-color: #f5f5f5;
+  text-decoration: line-through;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+}
+/* 
+
+
+
+*/

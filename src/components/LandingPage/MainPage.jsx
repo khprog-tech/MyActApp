@@ -3,10 +3,19 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import SideMenu from "./SideMenu";
-import EntryForm from "./EntryForm";
+import MainAccount from "../Accounts/MainAccount";
+import ControlAccount from "../Accounts/ControlAccount";
+import TransactionAccount from "../Accounts/TransactionAccount";
+import Product from "../Inventory/Product";
+import Category from "../Inventory/Category";
+import Warehouse from "../Inventory/Warehouse";
+import Vendor from "../Purchases/Vendor"
+import Customer from "../Sales/Customer"
+import SalesInvoice from "../Sales/SalesInvoice"
 import Dashboard from "./Dashboard";
-import ControlAccount from "./ControlAccount";
-import "./MainPage.css";
+import EntryForm from "../Accounts/EntryForm"
+
+import "../CSS/MainPage.css";
 
 
 const MainPage = () => {
@@ -39,9 +48,16 @@ const MainPage = () => {
         <main className={`content ${isMenuOpen ? "with-menu" : "full-width"}`}>
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/accounts/main" element={<EntryForm />} />
+            <Route path="/accounts/main" element={<MainAccount />} />
             <Route path="/accounts/control" element={<ControlAccount mainAccounts={fixedMainAccounts}/>} />
-            
+            <Route path="/accounts/transactions" element={<TransactionAccount />} />
+            <Route path="/inventory/products" element={<Product />} />
+            <Route path="/inventory/categories" element={<Category />} />
+            <Route path="/inventory/warehouse" element={<Warehouse />} />            
+            <Route path="/purchases/vendors" element={<Vendor />} />
+            <Route path="/Sales/Customers" element={<Customer />} />
+            <Route path="/Sales/orders" element={<EntryForm />} />
+            <Route path="/sales/invoices" element={<SalesInvoice />} />            
           </Routes>
         </main>
         <Footer />

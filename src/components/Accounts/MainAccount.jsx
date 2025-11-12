@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./EntryForm.css";
+import "../CSS/Accounts.css";
 
 const MainAccountForm = () => {
   const [mainCode, setMainCode] = useState("");
@@ -72,7 +72,7 @@ const MainAccountForm = () => {
   };
 
   return (
-    <div className="main-account-container">
+    <div className="account-container">
       {/* Header Section */}
       <div className="header-row">
         <h2>Main Account</h2>
@@ -108,7 +108,7 @@ const MainAccountForm = () => {
       </div>
 
       {/* Form Fields */}
-      <form onSubmit={handleSubmit} className="account-form">
+      <form onSubmit={handleSubmit} className="account-form-container">
         <div className="form-row">
           <label>Main Code:</label>
           <input

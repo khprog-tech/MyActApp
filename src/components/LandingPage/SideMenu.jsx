@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "./SideMenu.css";
+import "../CSS/SideMenu.css";
 
 const SideMenu = ({ onToggle }) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -90,6 +90,26 @@ const SideMenu = ({ onToggle }) => {
             )}
           </div>
 
+          {/* INVENTORY MENU */}
+          <div className="menu-item">
+            <div className="menu-title" onClick={() => handleSubMenu("inventory")}>
+              Inventory ▾
+            </div>
+            {openSubMenu === "inventory" && (
+              <div className="submenu">
+                <NavLink to="/inventory/products" className={({ isActive }) => (isActive ? "active" : "")}>
+                  Products
+                </NavLink>
+                <NavLink to="/inventory/categories" className={({ isActive }) => (isActive ? "active" : "")}>
+                  Categories
+                </NavLink>
+                <NavLink to="/inventory/warehouse" className={({ isActive }) => (isActive ? "active" : "")}>
+                  Warehouse
+                </NavLink>
+              </div>
+            )}
+          </div>
+
           {/* PURCHASES MENU */}
           <div className="menu-item">
             <div className="menu-title" onClick={() => handleSubMenu("purchases")}>
@@ -97,8 +117,8 @@ const SideMenu = ({ onToggle }) => {
             </div>
             {openSubMenu === "purchases" && (
               <div className="submenu">
-                <NavLink to="/purchases/suppliers" className={({ isActive }) => (isActive ? "active" : "")}>
-                  Suppliers
+                <NavLink to="/purchases/vendors" className={({ isActive }) => (isActive ? "active" : "")}>
+                  Vendors
                 </NavLink>
                 <NavLink to="/purchases/orders" className={({ isActive }) => (isActive ? "active" : "")}>
                   Purchase Orders
