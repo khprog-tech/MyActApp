@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/MyActApp/static/css/main.77bf07dd.css",
-    "main.js": "/MyActApp/static/js/main.c470c209.js",
+    "main.css": "/MyActApp/static/css/main.590e3c2d.css",
+    "main.js": "/MyActApp/static/js/main.44864bc7.js",
     "static/js/453.2e10272d.chunk.js": "/MyActApp/static/js/453.2e10272d.chunk.js",
     "static/media/logo.svg": "/MyActApp/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/MyActApp/index.html",
-    "main.77bf07dd.css.map": "/MyActApp/static/css/main.77bf07dd.css.map",
-    "main.c470c209.js.map": "/MyActApp/static/js/main.c470c209.js.map",
+    "main.590e3c2d.css.map": "/MyActApp/static/css/main.590e3c2d.css.map",
+    "main.44864bc7.js.map": "/MyActApp/static/js/main.44864bc7.js.map",
     "453.2e10272d.chunk.js.map": "/MyActApp/static/js/453.2e10272d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.77bf07dd.css",
-    "static/js/main.c470c209.js"
+    "static/css/main.590e3c2d.css",
+    "static/js/main.44864bc7.js"
   ]
 }
