@@ -127,7 +127,7 @@ const SideMenu = ({ onToggle }) => {
                   Goods Received
                 </NavLink>
                 <NavLink to="/purchases/invoices" className={({ isActive }) => (isActive ? "active" : "")}>
-                  Supplier Invoices
+                  Purchase Invoices
                 </NavLink>
               </div>
             )}

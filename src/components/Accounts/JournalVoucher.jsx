@@ -1,29 +1,29 @@
 import React, { useState } from "react";
-import "../CSS/Sales.css";
+import "../CSS/Vocher.css";
 
-const PurchaseInvoiceForm = () => {
-  const [invoice, setInvoice] = useState({
-    invoiceNo: "",
-    invoiceDate: "",
-    customerCode: "",
-    customerName: "",
-    address: "",
+const JournalVoucherForm = () => {
+  const [voucher, setVoucher] = useState({
+    voucherNo: "",
+    voucherDate: "",
+    voucherType: "",
+    voucherDescription: "",
   });
 
   const [item, setItem] = useState({
-    prodId: "",
-    productName: "",
-    qty: "",
-    rate: "",
+    accountId: "",
+    accountDescription: "",
+    accountParticulars: "",
+    accountDebit: "",
+    accountCredit: "",
   });
 
   const [items, setItems] = useState([]);
-  const [editIndex, setEditIndex] = useState(null);
+  const [editingIndex, setEditingIndex] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!invoice.invoiceDate.trim() || !invoice.customerCode.trim()) {
+    if (!voucher.voucherDate.trim() || !voucher.voucherType.trim()) {
       alert("Customer Code and Name are required.");
       return;
     }
@@ -31,8 +31,8 @@ const PurchaseInvoiceForm = () => {
 
 
   // Handle form field change
-  const handleInvoiceChange = (e) => {
-    setInvoice({ ...invoice, [e.target.name]: e.target.value });
+  const handlevoucherChange = (e) => {
+    setVoucher({ ...voucher, [e.target.name]: e.target.value });
   };
 
   // Handle line item change
@@ -42,29 +42,29 @@ const PurchaseInvoiceForm = () => {
 
   // Add or edit line item
   const handleAddItem = () => {
-    if (!item.prodId || !item.productName || !item.qty || !item.rate) return;
+    if (!item.accountId || !item.accountDescription) return;
 
     const newItem = {
       ...item,
       amount: (parseFloat(item.qty) * parseFloat(item.rate)).toFixed(2),
     };
 
-    if (editIndex !== null) {
+    if (editingIndex !== null) {
       const updated = [...items];
-      updated[editIndex] = newItem;
+      updated[editingIndex] = newItem;
       setItems(updated);
-      setEditIndex(null);
+      setEditingIndex(null);
     } else {
       setItems([...items, newItem]);
     }
 
-    setItem({ prodId: "", productName: "", qty: "", rate: "" });
+    setItem({ accountId: "", accountDescription: "", accountParticulars: "", accountDebit: "", accountCredit: "" });
   };
 
   // Edit existing item
   const handleEditItem = (index) => {
     setItem(items[index]);
-    setEditIndex(index);
+    setEditingIndex(index);
   };
 
   // Button handlers
@@ -77,35 +77,34 @@ const PurchaseInvoiceForm = () => {
   };
 
   const handleCancel = () => {
-    setInvoice({
-      invoiceNo: "",
-      invoiceDate: "",
-      customerCode: "",
+    setVoucher({
+      voucherNo: "",
+      voucherDate: "",
+      voucherType: "",
       address: "",      
     });
     setItems([]);
     alert("Form cleared.");
   };
 
-  const totalQty = items.reduce((sum, i) => sum + parseFloat(i.qty || 0), 0);
-  const totalAmount = items.reduce(
-    (sum, i) => sum + parseFloat(i.amount || 0),
-    0
+  const totalDebit = items.reduce((sum, i) => sum + parseFloat(i.accountDebit || 0), 0);
+  const totalCredit = items.reduce(
+    (sum, i) => sum + parseFloat(i.accountCredit || 0), 0
   );
 
   return (
-    <div className="vendor-form-container">
+    <div className="voucher-form-container">
       {/* Header Section */}
         <div className="header-row">
-        <h2>Sales Invoice</h2>
+        <h2>Journal Voucher</h2>
         <div className="action-buttons">
           <button
             className="btn-save"
             onClick={handleSubmit}
-            disabled={!invoice.invoiceDate.trim() || !invoice.customerCode.trim()}
+            disabled={!voucher.voucherDate.trim() || !voucher.voucherType.trim()}
           >
-            {/*}
-            {editingIndex !== null ? "Update Customer" : "Save Account"}*/}
+            
+            {editingIndex !== null ? "Update Customer" : "Save voucher"}
           </button>
 
           <button
@@ -120,8 +119,8 @@ const PurchaseInvoiceForm = () => {
             className="btn-cancel"
             onClick={handleCancel}
             disabled={              
-              !invoice.invoiceDate.trim() &&
-              !invoice.customerCode.trim()
+              !voucher.voucherDate.trim() &&
+              !voucher.voucherType.trim()
             }
           >
             Cancel
@@ -130,58 +129,47 @@ const PurchaseInvoiceForm = () => {
       </div>
 
       {/* Form Fields */}
-      <div className="vendor-form">
+      <div className="voucher-form">
         <div className="form-row">
             <div className="form-group">
-                <label>Invoice No:</label>
+                <label>Voucher No:</label>
                 <input
                 type="text"
-                name="invoiceNo"
-                value={invoice.invoiceNo}
-                onChange={handleInvoiceChange}
+                name="voucherNo"
+                value={voucher.voucherNo}
+                onChange={handlevoucherChange}
                 />          
             </div>
           <div className="form-group">
-            <label>Invoice Date:</label>
+            <label>Voucher Date:</label>
             <input
               type="date"
-              name="invoiceDate"
-              value={invoice.invoiceDate}
-              onChange={handleInvoiceChange}
+              name="voucherDate"
+              value={voucher.voucherDate}
+              onChange={handlevoucherChange}
             />
           </div>
         </div>
 
         <div className="form-row">
             <div className="form-group">
-                <label>Customer Code:</label>
+                <label>Voucher Type:</label>
                 <input
                 type="text"
-                name="customerCode"
-                value={invoice.invoiceNo}
-                onChange={handleInvoiceChange}
+                name="voucherType"
+                value={voucher.voucherType}
+                onChange={handlevoucherChange}
                 />          
             </div>
           <div className="form-group">
-            <label>Customer Name:</label>
+            <label>Description:</label>
             <input
               type="text"
-              name="customerName"
-              value={invoice.invoiceDate}
-              onChange={handleInvoiceChange}
+              name="voucherDescription"
+              value={voucher.voucherDescription}
+              onChange={handlevoucherChange}
             />
           </div>
-        </div>
-
-        <div className="form-row">
-          <label>Address:</label>
-          <input
-            type="text"
-            name="address"
-            value={invoice.address}
-            onChange={handleInvoiceChange}
-            style={{ width: "100%" }}
-          />
         </div>
       </div>
 
@@ -190,33 +178,41 @@ const PurchaseInvoiceForm = () => {
 
       <div class="form-row">
         <input
-          placeholder="Prod ID"
-          name="prodId"
-          value={item.prodId}
+          placeholder="Account ID"
+          name="accountId"
+          value={item.accountId}
           onChange={handleItemChange}
         />
         <input
-          placeholder="Product Name"
-          name="productName"
-          value={item.productName}
+          placeholder="Account Description"
+          name="accountDescription"
+          value={item.accountDescription}
           onChange={handleItemChange}
         />
         <input
-          placeholder="Qty"
+          placeholder="Particulars"
+          type="text"
+          name="accountParticulars"
+          value={item.accountParticulars}
+          onChange={handleItemChange}
+        />
+        <input
+          placeholder="Debit  "
           type="number"
-          name="qty"
-          value={item.qty}
+          name="accountDebit"
+          value={item.accountDebit}
           onChange={handleItemChange}
         />
         <input
-          placeholder="Rate"
+          placeholder="Credit  "
           type="number"
-          name="rate"
-          value={item.rate}
+          name="accountCredit"
+          value={item.accountCredit}
           onChange={handleItemChange}
         />
+
         <button onClick={handleAddItem}>
-          {editIndex !== null ? "Update" : "+"}
+          {editingIndex !== null ? "Update" : "+"}
         </button>
       </div>
 
@@ -226,11 +222,11 @@ const PurchaseInvoiceForm = () => {
           <tr style={{ backgroundColor: "#eee" }}>
             <th>#</th>
             <th>Select</th>
-            <th>Prod ID</th>
-            <th>Product Name</th>
-            <th>Qty</th>
-            <th>Rate</th>
-            <th>Amount</th>
+            <th>Account ID</th>
+            <th>Account Description</th>
+            <th>Particulars</th>
+            <th>Debit</th>
+            <th>Credit</th>
           </tr>
         </thead>
         <tbody>
@@ -240,11 +236,11 @@ const PurchaseInvoiceForm = () => {
               <td>
                 <input type="checkbox" onChange={() => handleEditItem(index)} />
               </td>
-              <td>{it.prodId}</td>
-              <td>{it.productName}</td>
-              <td>{it.qty}</td>
-              <td>{it.rate}</td>
-              <td>{it.amount}</td>
+              <td>{it.accountId}</td>
+              <td>{it.accountDescription}</td>
+              <td>{it.accountParticulars}</td>
+              <td>{it.accountDebit}</td>
+              <td>{it.accountCredit}</td>
             </tr>
           ))}
         </tbody>
@@ -252,11 +248,11 @@ const PurchaseInvoiceForm = () => {
 
       {/* Totals */}
       <div style={{ marginTop: 10, textAlign: "right" }}>
-        <p><strong>Total Qty:</strong> {totalQty.toFixed(2)}</p>
-        <p><strong>Total Amount:</strong> {totalAmount.toFixed(2)}</p>
+        <p><strong>Total Debit:</strong> {totalDebit.toFixed(2)}</p>
+        <p><strong>Total Credit:</strong> {totalCredit.toFixed(2)}</p>
       </div>
     </div>
   );
 };
 
-export default PurchaseInvoiceForm;
+export default JournalVoucherForm;

@@ -6,10 +6,12 @@ import SideMenu from "./SideMenu";
 import MainAccount from "../Accounts/MainAccount";
 import ControlAccount from "../Accounts/ControlAccount";
 import TransactionAccount from "../Accounts/TransactionAccount";
+import JournalVoucher from "../Accounts/JournalVoucher";
 import Product from "../Inventory/Product";
 import Category from "../Inventory/Category";
 import Warehouse from "../Inventory/Warehouse";
 import Vendor from "../Purchases/Vendor"
+import PurchaseInvoice from "../Purchases/PurchaseInvoice"
 import Customer from "../Sales/Customer"
 import SalesInvoice from "../Sales/SalesInvoice"
 import Dashboard from "./Dashboard";
@@ -36,25 +38,28 @@ const MainPage = () => {
 
   return (
     <Router>
-      <div className="main-page">
-        <Header />
+      <div className="main-page">        
+        <Header />        
         <SideMenu 
 
         /*
           onToggle={handleMenuToggle} 
           onMenuSelect={(page) => setActivePage(page)} // Pass callback*/
 
-        />      
-        <main className={`content ${isMenuOpen ? "with-menu" : "full-width"}`}>
+        />                
+
+        <main className={`content ${isMenuOpen ? "with-menu" : "full-width"}`}>          
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/accounts/main" element={<MainAccount />} />
             <Route path="/accounts/control" element={<ControlAccount mainAccounts={fixedMainAccounts}/>} />
             <Route path="/accounts/transactions" element={<TransactionAccount />} />
+            <Route path="/voucher/journal" element={<JournalVoucher />} />
             <Route path="/inventory/products" element={<Product />} />
             <Route path="/inventory/categories" element={<Category />} />
             <Route path="/inventory/warehouse" element={<Warehouse />} />            
             <Route path="/purchases/vendors" element={<Vendor />} />
+            <Route path="/purchases/invoices" element={<PurchaseInvoice />} />
             <Route path="/Sales/Customers" element={<Customer />} />
             <Route path="/Sales/orders" element={<EntryForm />} />
             <Route path="/sales/invoices" element={<SalesInvoice />} />

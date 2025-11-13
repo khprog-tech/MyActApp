@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "../CSS/Sales.css";
+import "../CSS/Purchase.css";
 
-const SalesInvoiceForm = () => {
+const PurchaseInvoiceForm = () => {
   const [invoice, setInvoice] = useState({
-    invoiceNo: "",
-    invoiceDate: "",
-    customerCode: "",
-    customerName: "",
+    purchaseId: "",
+    invoicePurchaseId: "",
+    vendorId: "",
+    vendorName: "",
     address: "",
   });
 
@@ -23,7 +23,7 @@ const SalesInvoiceForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!invoice.invoiceDate.trim() || !invoice.customerCode.trim()) {
+    if (!invoice.invoicePurchaseId.trim() || !invoice.vendorId.trim()) {
       alert("Customer Code and Name are required.");
       return;
     }
@@ -78,9 +78,9 @@ const SalesInvoiceForm = () => {
 
   const handleCancel = () => {
     setInvoice({
-      invoiceNo: "",
-      invoiceDate: "",
-      customerCode: "",
+      purchaseId: "",
+      invoicePurchaseId: "",
+      vendorId: "",
       address: "",      
     });
     setItems([]);
@@ -89,22 +89,23 @@ const SalesInvoiceForm = () => {
 
   const totalQty = items.reduce((sum, i) => sum + parseFloat(i.qty || 0), 0);
   const totalAmount = items.reduce(
-    (sum, i) => sum + parseFloat(i.amount || 0), 0
+    (sum, i) => sum + parseFloat(i.amount || 0),
+    0
   );
 
   return (
-    <div className="customer-form-container">
+    <div className="vendor-form-container">
       {/* Header Section */}
         <div className="header-row">
-        <h2>Sales Invoice</h2>
+        <h2>Purchase Invoice</h2>
         <div className="action-buttons">
           <button
             className="btn-save"
             onClick={handleSubmit}
-            disabled={!invoice.invoiceDate.trim() || !invoice.customerCode.trim()}
+            disabled={!invoice.invoicePurchaseId.trim() || !invoice.vendorId.trim()}
           >
             
-            {editingIndex !== null ? "Update Customer" : "Save Invoice"}
+            {editingIndex !== null ? "Update Customer" : "Save Purchase"}
           </button>
 
           <button
@@ -119,8 +120,8 @@ const SalesInvoiceForm = () => {
             className="btn-cancel"
             onClick={handleCancel}
             disabled={              
-              !invoice.invoiceDate.trim() &&
-              !invoice.customerCode.trim()
+              !invoice.invoicePurchaseId.trim() &&
+              !invoice.vendorId.trim()
             }
           >
             Cancel
@@ -129,23 +130,23 @@ const SalesInvoiceForm = () => {
       </div>
 
       {/* Form Fields */}
-      <div className="customer-form">
+      <div className="vendor-form">
         <div className="form-row">
             <div className="form-group">
-                <label>Invoice No:</label>
+                <label>Purchase Id:</label>
                 <input
                 type="text"
-                name="invoiceNo"
-                value={invoice.invoiceNo}
+                name="purchaseId"
+                value={invoice.purchaseId}
                 onChange={handleInvoiceChange}
                 />          
             </div>
           <div className="form-group">
-            <label>Invoice Date:</label>
+            <label>Purchase Date:</label>
             <input
               type="date"
-              name="invoiceDate"
-              value={invoice.invoiceDate}
+              name="invoicePurchaseId"
+              value={invoice.invoicePurchaseId}
               onChange={handleInvoiceChange}
             />
           </div>
@@ -153,20 +154,20 @@ const SalesInvoiceForm = () => {
 
         <div className="form-row">
             <div className="form-group">
-                <label>Customer Code:</label>
+                <label>Vendor Id:</label>
                 <input
                 type="text"
-                name="customerCode"
-                value={invoice.invoiceNo}
+                name="vendorId"
+                value={invoice.purchaseId}
                 onChange={handleInvoiceChange}
                 />          
             </div>
           <div className="form-group">
-            <label>Customer Name:</label>
+            <label>Vendor Name:</label>
             <input
               type="text"
-              name="customerName"
-              value={invoice.invoiceDate}
+              name="vendorName"
+              value={invoice.invoicePurchaseId}
               onChange={handleInvoiceChange}
             />
           </div>
@@ -208,7 +209,7 @@ const SalesInvoiceForm = () => {
           onChange={handleItemChange}
         />
         <input
-          placeholder="Price  "
+          placeholder="Rate"
           type="number"
           name="rate"
           value={item.rate}
@@ -228,7 +229,7 @@ const SalesInvoiceForm = () => {
             <th>Prod ID</th>
             <th>Product Name</th>
             <th>Qty</th>
-            <th>Prcie</th>
+            <th>Rate</th>
             <th>Amount</th>
           </tr>
         </thead>
@@ -258,4 +259,4 @@ const SalesInvoiceForm = () => {
   );
 };
 
-export default SalesInvoiceForm;
+export default PurchaseInvoiceForm;
