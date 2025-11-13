@@ -1,10 +1,10 @@
-.inventory-form-container {
+.vendor-form-container {
   max-width: 900px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
 }
 
-.inventory-form {
+.vendor-form {
   background-color: #f9f9f9;
   margin-top: 10px;
 }
@@ -85,7 +85,7 @@
 }
 
 .form-group label {
-  width: 18%;             /* adjust label width */
+  width: 35%;             /* adjust label width */
   font-weight:bold;
   text-align: left;      /* align label text to the right */
   margin-right: 0px;
@@ -102,44 +102,3 @@
 .form-group + .form-group {
   margin-left: 40px;  /* space before second label */
 }
-
-/* Table styling */
-.inventory-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.inventory-table th,
-.inventory-table td {
-  padding: 8px;
-  border: 1px solid #ddd;
-  text-align: left;
-}
-
-.inventory-table th {
-  background-color: #f1f1f1;
-}
-
-.status-active {
-  color: green;
-  font-weight: bold;
-}
-
-.status-inactive {
-  color: gray;
-}
-
-.inactive-row {
-  background-color: #f5f5f5;
-  text-decoration: line-through;
-}
-
-.empty {
-  text-align: center;
-  color: #888;
-}
-/* 
-
-
-
-*/

@@ -58,7 +58,7 @@ const SideMenu = ({ onToggle }) => {
                   Control Account
                 </NavLink>
                 <NavLink to="/accounts/transactions" className={({ isActive }) => (isActive ? "active" : "")}>
-                  Transaction
+                  Transaction Account
                 </NavLink>
               </div>
             )}

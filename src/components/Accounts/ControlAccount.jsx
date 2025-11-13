@@ -109,7 +109,7 @@ const ControlAccountForm = ({ mainAccounts }) => {
   };
 
   return (
-    <div className="account-container">
+    <div className="account-form-container">
       {/* Header Buttons */}
       <div className="header-row">
         <h2>Control Account</h2>

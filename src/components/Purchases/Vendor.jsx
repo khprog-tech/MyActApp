@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import "../CSS/Sales.css";
+import "../CSS/Purchase.css";
 import cities from "../Data/cities.json"
 
 const VendorForm = () => {
@@ -99,7 +99,7 @@ const handleSubmit = (e) => {
   };
 
   return (
-    <div className="customer-form-container">            
+    <div className="vendor-form-container">            
       {/* Header Section */}
         <div className="header-row">
         <h2>Vendor Information</h2>
@@ -135,7 +135,7 @@ const handleSubmit = (e) => {
       </div>
 
       {/* Form Fields */}
-      <form onSubmit={handleSubmit} className="customer-form">
+      <form onSubmit={handleSubmit} className="vendor-form">
         <div className="form-row">
           <div className="form-group">
             <label>Vendor Code:</label>

@@ -72,7 +72,7 @@ const MainAccountForm = () => {
   };
 
   return (
-    <div className="account-container">
+    <div className="account-form-container">
       {/* Header Section */}
       <div className="header-row">
         <h2>Main Account</h2>

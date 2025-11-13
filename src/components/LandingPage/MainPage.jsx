@@ -57,7 +57,7 @@ const MainPage = () => {
             <Route path="/purchases/vendors" element={<Vendor />} />
             <Route path="/Sales/Customers" element={<Customer />} />
             <Route path="/Sales/orders" element={<EntryForm />} />
-            <Route path="/sales/invoices" element={<SalesInvoice />} />            
+            <Route path="/sales/invoices" element={<SalesInvoice />} />
           </Routes>
         </main>
         <Footer />
